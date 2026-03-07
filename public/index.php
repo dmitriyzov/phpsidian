@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__ . '/../app/Note.php';
+
 $pages = [
     'list' => 'list.php',
     'view' => 'view.php',
@@ -9,7 +11,10 @@ $pages = [
 $page = $_GET['page'] ?? 'list';
 
 if (isset($pages[$page])) {
-    $notes = ['Note 1', 'Note 2'];
+    $notes = [
+        new Note('Note 1', 'Content 1'),
+        new Note('Note 2', 'Content 2')
+    ];
     include __DIR__ . '/../views/' . $pages[$page];
 } else {
     // include('views/404.php') TODO: add a 404 view

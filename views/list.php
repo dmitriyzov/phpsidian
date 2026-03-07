@@ -5,7 +5,7 @@
     <body>
         <ul>
         <?php foreach ($notes as $note): ?>
-            <li><?= htmlspecialchars($note) ?></li>
+            <li><?= htmlspecialchars($note->title) ?></li>
         <?php endforeach; ?>
         </ul>
     </body>
