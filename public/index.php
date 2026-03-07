@@ -1,5 +1,6 @@
 <?php
 
+require __DIR__ . '/router.php';
 require __DIR__ . '/../app/Note.php';
 
 $pages = [
@@ -15,7 +16,7 @@ if (isset($pages[$page])) {
         new Note('Note 1', 'Content 1'),
         new Note('Note 2', 'Content 2')
     ];
-    include __DIR__ . '/../views/' . $pages[$page];
+    render($pages[$page], ['notes' => $notes]);
 } else {
     // include('views/404.php') TODO: add a 404 view
     http_response_code(404);
