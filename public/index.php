@@ -1,7 +1,8 @@
 <?php
+declare(strict_types=1);
 
-require __DIR__ . '/router.php';
-require __DIR__ . '/../app/Note.php';
+require_once __DIR__ . '/router.php';
+require_once __DIR__ . '/../app/Note.php';
 
 $pages = [
     'list' => 'list.php',
