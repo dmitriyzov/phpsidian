@@ -50,3 +50,12 @@ A small personal Obsidian-like notes application built with plain PHP 8.x and SQ
 - filter by tag(s)
 - preview markdown
 - insert links to other notes
+
+## Installation
+
+### Running on an Apple Silicon Mac
+
+```bash
+brew install php                # install PHP
+php -S localhost:8000 -t public # run using the built-in PHP server
+```
