@@ -21,9 +21,11 @@ A small personal Obsidian-like notes application built with plain PHP 8.x and SQ
 ├── app
 │   ├── Note.php                # Note entity
 │   ├── NoteRepository.php      # Repository interface
+│   ├── NotesController.php     # Notes controller
 │   └── PdoNoteRepository.php   # SQLite implementation
 ├── public
 │   └── index.php               # entrypoint
+│   └── router.php              # router
 ├── views
 │   ├── form.php
 │   ├── list.php
