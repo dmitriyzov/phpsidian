@@ -9,14 +9,21 @@ readonly class NotesController
     public function __construct() {}
 
     # TODO: implement pagination and limit
-    public function list()
+    public function list() : void
     {
         $notes = [
             new Note('Note 1', 'Content 1'),
             new Note('Note 2', 'Content 2')
         ];
 
-        return $this->renderView('list.php', ['notes' => $notes]);
+        $this->renderView('list.php', ['notes' => $notes]);
+
+    }
+
+    public function view() : void
+    {
+        $note = new Note('Note 1', 'Content 1');
+        $this->renderView('view.php', ['note' => $note]);
 
     }
 
