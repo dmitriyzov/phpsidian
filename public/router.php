@@ -23,4 +23,4 @@ if (!method_exists($controller, $methodName)) {
     exit("Unknown action.");
 }
 
-$controller->$methodName();
+$controller->$methodName($queryString);
