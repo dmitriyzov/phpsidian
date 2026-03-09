@@ -1,0 +1,11 @@
+{
+    "name": "dmitriyzov/phpsidian",
+    "description": "A small personal Obsidian-like notes application built with plain PHP 8.x and SQLite.",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "require": {}
+}

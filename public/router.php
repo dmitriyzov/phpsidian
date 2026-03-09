@@ -7,15 +7,14 @@ $urlParts = explode('/', rtrim($requestPath, '/'));
 
 $controllerName = ucfirst(($urlParts[1]) ?? 'notes') . 'Controller';
 $methodName = $urlParts[2] ?? 'list';
-$controllerFilename = __DIR__ . "/../app/$controllerName.php";
+$controllerClass = "App\\Controller\\$controllerName";
 
-if (!file_exists($controllerFilename)) {
+if (!class_exists($controllerClass)) {
     http_response_code(404);
     exit("Unknown route.");
 }
 
-require_once $controllerFilename;
-$controller = new $controllerName();
+$controller = new $controllerClass();
 
 if (!method_exists($controller, $methodName)) {
     http_response_code(404);

@@ -1,7 +1,9 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/Note.php';
+namespace App\Controller;
+
+use App\Entity\Note;
 
 # TODO: have it implement a ControllerInterface
 class NotesController
@@ -37,6 +39,6 @@ class NotesController
     public function renderView(string $view, array $data = []): void
     {
         extract($data);
-        require __DIR__ . '/../views/' . $view;
+        require __DIR__ . '/../../views/' . $view;
     }
 }
