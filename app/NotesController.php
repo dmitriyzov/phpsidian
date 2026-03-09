@@ -4,7 +4,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/Note.php';
 
 # TODO: have it implement a ControllerInterface
-readonly class NotesController
+class NotesController
 {
     public function __construct() {}
 
