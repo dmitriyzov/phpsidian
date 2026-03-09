@@ -22,7 +22,14 @@ readonly class NotesController
 
     public function view() : void
     {
-        $note = new Note('Note 1', 'Content 1');
+        $notes = [
+            new Note('Note 1', 'Content 1'),
+            new Note('Note 2', 'Content 2')
+        ];
+
+        $id = $_GET['id'] ?? 1;
+        
+        $note = $notes[intval($id)-1];
         $this->renderView('view.php', ['note' => $note]);
 
     }
