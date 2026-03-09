@@ -36,7 +36,7 @@ class NotesController
 
     }
 
-    public function renderView(string $view, array $data = []): void
+    private function renderView(string $view, array $data = []): void
     {
         extract($data);
         require __DIR__ . '/../../views/' . $view;
