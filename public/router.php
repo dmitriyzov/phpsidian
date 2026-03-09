@@ -2,7 +2,6 @@
 declare(strict_types=1);
 
 // URL parts
-$queryString = $_SERVER['QUERY_STRING'] ?? '';
 $requestPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $urlParts = explode('/', rtrim($requestPath, '/'));
 
@@ -23,4 +22,4 @@ if (!method_exists($controller, $methodName)) {
     exit("Unknown action.");
 }
 
-$controller->$methodName($queryString);
+$controller->$methodName();
