@@ -8,6 +8,8 @@ use App\Entity\Note;
 # TODO: have it implement a ControllerInterface
 class NotesController
 {
+    public const ALLOWED_ACTIONS = ['list' => true, 'view' => true];
+
     public function __construct() {}
 
     # TODO: implement pagination and limit

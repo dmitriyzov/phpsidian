@@ -16,7 +16,7 @@ if (!class_exists($controllerClass)) {
 
 $controller = new $controllerClass();
 
-if (!method_exists($controller, $methodName)) {
+if (!method_exists($controller, $methodName) || !isset($controllerClass::ALLOWED_ACTIONS[$methodName])) {
     http_response_code(404);
     exit("Unknown action.");
 }
