@@ -6,10 +6,8 @@ namespace App\Controller;
 use App\Entity\Note;
 
 # TODO: have it implement a ControllerInterface
-class NotesController
+class NotesController extends AbstractController
 {
-    public const ALLOWED_ACTIONS = ['list' => true, 'view' => true];
-
     public function __construct() {}
 
     # TODO: implement pagination and limit
