@@ -8,8 +8,6 @@ use App\Entity\Note;
 # TODO: have it implement a ControllerInterface
 class NotesController extends AbstractController
 {
-    public function __construct() {}
-
     # TODO: implement pagination and limit
     public function list() : void
     {
