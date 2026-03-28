@@ -4,10 +4,13 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Entity\Note;
+use App\Repository\NoteRepository;
 
 # TODO: have it implement a ControllerInterface
 class NotesController extends AbstractController
 {
+    public function __construct(private NoteRepository $repository) {}
+
     # TODO: implement pagination and limit
     public function list() : void
     {
