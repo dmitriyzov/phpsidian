@@ -58,6 +58,10 @@ tree --dirsfirst -I vendor
 ### Tables
 - notes
 
+```sql
+CREATE TABLE notes ( id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, content TEXT NOT NULL, date_created DATETIME NOT NULL, date_updated DATETIME NOT NULL, tags TEXT);
+```
+
 ## Nice-to-have features
 - search by title/content
 - filter by tag(s)
