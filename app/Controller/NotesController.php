@@ -22,7 +22,12 @@ class NotesController extends AbstractController
     {
         $id = $_GET['id'] ?? 1;
         $note = $this->repository->findById(intval($id));
-        $this->renderView('view.php', ['note' => $note]);
+        if ($note) {
+            $this->renderView('view.php', ['note' => $note]);
+        } else {
+            http_response_code(404);
+            exit("Note not found.");
+        }
     }
 
     private function renderView(string $view, array $data = []): void
