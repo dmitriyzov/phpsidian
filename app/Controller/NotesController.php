@@ -20,16 +20,9 @@ class NotesController extends AbstractController
 
     public function view() : void
     {
-        $notes = [
-            new Note('Note 1', 'Content 1'),
-            new Note('Note 2', 'Content 2')
-        ];
-
         $id = $_GET['id'] ?? 1;
-        
-        $note = $notes[intval($id)-1];
+        $note = $this->repository->findById(intval($id));
         $this->renderView('view.php', ['note' => $note]);
-
     }
 
     private function renderView(string $view, array $data = []): void

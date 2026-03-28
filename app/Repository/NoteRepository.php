@@ -19,4 +19,17 @@ class NoteRepository
             $stmt->fetchAll(PDO::FETCH_ASSOC)
         );
     }
+
+    public function findById(int $id) : ?Note
+    {
+        $stmt = $this->pdo->prepare('SELECT * FROM notes WHERE id = :id');
+        $stmt->execute(['id' => $id]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$row) {
+            return null;
+        }
+
+        return new Note($row['title'], $row['content']);
+    }
 }
