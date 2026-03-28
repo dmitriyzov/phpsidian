@@ -14,13 +14,8 @@ class NotesController extends AbstractController
     # TODO: implement pagination and limit
     public function list() : void
     {
-        $notes = [
-            new Note('Note 1', 'Content 1'),
-            new Note('Note 2', 'Content 2')
-        ];
-
+        $notes = $this->repository->findAll();
         $this->renderView('list.php', ['notes' => $notes]);
-
     }
 
     public function view() : void
