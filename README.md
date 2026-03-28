@@ -20,6 +20,7 @@ A small personal Obsidian-like notes application built with plain PHP 8.x and SQ
 .
 ├── app
 │   ├── Controller
+│   │   ├── AbstractController.php
 │   │   └── NotesController.php
 │   ├── Entity
 │   │   └── Note.php
@@ -35,6 +36,12 @@ A small personal Obsidian-like notes application built with plain PHP 8.x and SQ
 │   └── view.php
 ├── composer.json
 └── README.md
+```
+
+### Updating the folder structure
+
+```bash
+tree --dirsfirst -I vendor
 ```
 
 ## Data model
@@ -69,3 +76,5 @@ php -S localhost:8000 -t public # run using the built-in PHP server
 browser-sync start --proxy localhost:8000 --files "**/*.php"
 
 ```
+
+### Updating the 
