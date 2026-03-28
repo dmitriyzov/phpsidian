@@ -70,6 +70,13 @@ CREATE TABLE notes ( id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, 
 
 ## Installation
 
+### Create SQLite "Notes" database
+
+```bash
+### Create database
+sqlite3 notes.db
+```
+
 ### Running on an Apple Silicon Mac
 
 ```bash
@@ -80,5 +87,3 @@ php -S localhost:8000 -t public # run using the built-in PHP server
 browser-sync start --proxy localhost:8000 --files "**/*.php"
 
 ```
-
-### Updating the 
