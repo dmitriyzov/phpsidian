@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Repository;
 
 use PDO;
+use App\Entity\Note;
 
 class NoteRepository
 {
@@ -12,6 +13,10 @@ class NoteRepository
     public function findAll() : array
     {
         $stmt = $this->pdo->query('SELECT * FROM notes');
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return array_map(
+            fn($row) => new Note($row['title'], $row['content']),
+            $stmt->fetchAll(PDO::FETCH_ASSOC)
+        );
     }
 }
