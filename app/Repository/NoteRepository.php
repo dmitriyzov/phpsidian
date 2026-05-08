@@ -32,4 +32,24 @@ class NoteRepository
 
         return new Note($row['title'], $row['content']);
     }
+
+    public function create(Note $note) : int
+    {
+        // TODO: add tag support
+        $stmt = $this->pdo->prepare(
+            'INSERT INTO notes (title, content, date_created, date_updated)
+            VALUES (:title, :content, :date_created, :date_updated)');
+        
+        // TODO: move date format into some sort of project config
+        $now = (new \DateTimeImmutable())->format('Y-m-d H:i:s');
+
+        $stmt->execute([
+            'title' => $note->title,
+            'content' => $note->content,
+            'date_created' => $now,
+            'date_updated' => $now
+        ]);
+
+        return intval($this->pdo->lastInsertId());
+    }
 }

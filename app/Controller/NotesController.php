@@ -30,6 +30,17 @@ class NotesController extends AbstractController
         }
     }
 
+    public function create() : int
+    {
+        // keeping these in vars to sanitize later
+        $title = $_POST['title'] ?? '';
+        $content = $_POST['content'] ?? '';
+        $tags = $_POST['tags'] ?? ''; // TODO implement tags
+
+        $note = new Note($title, $content, $tags);
+        return $this->repository->create($note);
+    }
+
     private function renderView(string $view, array $data = []): void
     {
         extract($data);
