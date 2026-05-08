@@ -5,5 +5,6 @@
     <body>
         <h1><?= htmlspecialchars($note->title) ?></h1>
         <p><?= htmlspecialchars($note->content) ?></p>
+        <p><?= htmlspecialchars($note->created_at) ?></p>
     </body>
 </html>
