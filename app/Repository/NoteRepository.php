@@ -30,15 +30,15 @@ class NoteRepository
             return null;
         }
 
-        return new Note($row['title'], $row['content']);
+        return new Note($row['title'], $row['content'], $row['created_at'], $row['updated_at']);
     }
 
     public function create(Note $note) : int
     {
         // TODO: add tag support
         $stmt = $this->pdo->prepare(
-            'INSERT INTO notes (title, content, date_created, date_updated)
-            VALUES (:title, :content, :date_created, :date_updated)');
+            'INSERT INTO notes (title, content, created_at, updated_at)
+            VALUES (:title, :content, :created_at, :updated_at)');
         
         // TODO: move date format into some sort of project config
         $now = (new \DateTimeImmutable())->format('Y-m-d H:i:s');
@@ -46,8 +46,8 @@ class NoteRepository
         $stmt->execute([
             'title' => $note->title,
             'content' => $note->content,
-            'date_created' => $now,
-            'date_updated' => $now
+            'created_at' => $now,
+            'updated_at' => $now
         ]);
 
         return intval($this->pdo->lastInsertId());
